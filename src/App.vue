@@ -103,13 +103,12 @@ const onIntroEnd = () => {
 };
 
 const onPreloadDone = async () => {
+    console.time("preloadDone");
     await api.content.engine.init();
 
     if (api.content.engine.installedVersions.length === 0) {
         state.value = "initial-setup";
     } else {
-        await api.content.engine.init();
-
         const latestEngine = lastInArray(api.content.engine.installedVersions)!;
         const binaryName = process.platform === "win32" ? "pr-downloader.exe" : "pr-downloader";
         const prBinaryPath = path.join(api.settings.model.dataDir.value, "engine", latestEngine, binaryName);
@@ -125,6 +124,7 @@ const onPreloadDone = async () => {
 
         state.value = "default";
     }
+    console.timeEnd("preloadDone");
 };
 
 const onInitialSetupDone = () => {
@@ -147,5 +147,8 @@ const rightClick = () => api.session.onRightClick.dispatch();
     flex-direction: column;
     flex-grow: 1;
     gap: 10px;
+    :deep(.panel .content > *) {
+        align-items: flex-start;
+    }
 }
 </style>

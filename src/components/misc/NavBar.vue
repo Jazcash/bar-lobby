@@ -13,7 +13,7 @@
                     </Button>
                 </div>
                 <div class="nav__primary-right">
-                    <Button class="icon" to="/profile" tooltip="Profile">
+                    <Button v-tooltip="'Profile'" class="icon" to="/profile">
                         <Icon :icon="account" :height="40" />
                     </Button>
                     <DownloadsButton tooltip="Downloads" @click="downloadsOpen = true" />

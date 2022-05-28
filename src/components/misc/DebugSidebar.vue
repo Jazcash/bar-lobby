@@ -1,9 +1,9 @@
 <template>
     <div class="debug-sidebar" :class="{ active }">
         <div class="debug-sidebar__toggle">
-            <Button @click="active = !active">
+            <div class="toggle" @click="active = !active">
                 <Icon :icon="tools" :height="20" />
-            </Button>
+            </div>
         </div>
         <Select v-model="currentRoute" label="View" :options="routes" :labelBy="(route: any) => route.path" :valueBy="(route: any) => route.path" fullWidth :searchable="true" :clearOnSelect="true" />
         <Button to="/debug/playground" :flexGrow="false" fullWidth> Debug Playground </Button>
@@ -87,7 +87,7 @@ scope.run(() => {
         position: absolute;
         bottom: 0;
         left: 0;
-        button {
+        .toggle {
             transform: translateX(-100%);
             background: #111;
             border: 1px solid #222;

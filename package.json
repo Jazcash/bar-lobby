@@ -52,6 +52,7 @@
     "node-7z": "^3.0.0",
     "octokit": "^1.7.1",
     "prettier": "^2.6.2",
+    "primevue": "^3.12.6",
     "rimraf": "^3.0.2",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
@@ -72,5 +73,8 @@
     "vue3-markdown-it": "^1.0.9",
     "vue3-popper": "^1.4.1",
     "worker-plugin": "^5.0.1"
+  },
+  "dependencies": {
+    "primeicons": "^5.0.0"
   }
 }

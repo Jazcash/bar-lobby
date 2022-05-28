@@ -1,7 +1,12 @@
 import "vue-next-select/dist/index.css";
 import "vue-slider-component/theme/default.css";
+import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
 import "@/assets/styles/styles.scss";
 
+import PrimeVue from "primevue/config";
+import Tooltip from "primevue/tooltip";
 import type { ComponentPublicInstance, TransitionProps } from "vue";
 import { createApp } from "vue";
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -44,7 +49,10 @@ async function setupVue() {
 
     app.use(router);
 
+    app.use(PrimeVue);
+
     app.directive("click-away", clickAwayDirective);
+    app.directive("tooltip", Tooltip);
 
     app.mount("#app");
 

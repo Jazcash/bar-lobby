@@ -16,7 +16,7 @@ const router = useRouter();
 
 onMounted(async () => {
     try {
-        console.time("yep");
+        console.time("connect-login");
         await api.comms.connect();
 
         if (api.account.model.token.value && api.settings.model.loginAutomatically.value) {
@@ -30,7 +30,7 @@ onMounted(async () => {
             if (loginResponse.result === "success") {
                 storeUserSession(loginResponse.user);
                 await router.replace("/home");
-                console.timeEnd("yep");
+                console.timeEnd("connect-login");
                 return;
             }
         }

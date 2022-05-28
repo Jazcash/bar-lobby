@@ -42,3 +42,7 @@ body {
 [draggable] {
     -webkit-user-drag: element;
 }
+div {
+    display: flex;
+    flex-direction: column;
+}

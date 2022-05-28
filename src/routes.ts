@@ -8,6 +8,7 @@ import profile_index from '@/views/profile/index.vue'
 import singleplayer_index from '@/views/singleplayer/index.vue'
 import debug_inputs from '@/views/debug/inputs.vue'
 import debug_playground from '@/views/debug/playground.vue'
+import debug_prime_vue from '@/views/debug/prime-vue.vue'
 import debug_test from '@/views/debug/test.vue'
 import development_game_dev from '@/views/development/game-dev.vue'
 import development_lobby_dev from '@/views/development/lobby-dev.vue'
@@ -150,6 +151,15 @@ export default [
     meta: {
       title: 'Playground',
       order: 0,
+    },
+  },
+  {
+    name: 'debug-prime-vue',
+    path: '/debug/prime-vue',
+    component: debug_prime_vue,
+    meta: {
+      title: 'Prime Vue',
+      order: 3,
     },
   },
   {
