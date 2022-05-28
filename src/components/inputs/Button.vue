@@ -1,20 +1,18 @@
 <template>
-    <Tooltip :content="tooltip">
-        <div class="control button" :class="{ disabled, 'flex-grow': flexGrow, slim, fullwidth: fullWidth }">
-            <component :is="to ? 'router-link' : 'button'" class="btn" :to="to" :class="{ active: isActive }" v-bind="$attrs" @mouseenter="sound">
-                <div class="content">
-                    <slot />
-                </div>
-            </component>
-        </div>
-    </Tooltip>
+    <Control class="control button" :class="{ disabled, 'flex-grow': flexGrow, slim, fullwidth: fullWidth }">
+        <component :is="to ? 'router-link' : 'button'" class="btn" :to="to" :class="{ active: isActive }" v-bind="$attrs" @mouseenter="sound">
+            <div class="content">
+                <slot />
+            </div>
+        </component>
+    </Control>
 </template>
 
 <script lang="ts" setup>
 import { computed, toRefs } from "vue";
 import { useRoute } from "vue-router";
 
-import Tooltip from "@/components/common/Tooltip.vue";
+import Control from "@/components/inputs/Control.vue";
 
 const props = withDefaults(
     defineProps<{

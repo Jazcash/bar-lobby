@@ -1,9 +1,9 @@
 <template>
     <div class="control options" :class="{ disabled, fullWidth }">
-        <div v-if="label" class="options__label">
+        <label v-if="label">
             {{ label }}
-        </div>
-        <div class="options__list">
+        </label>
+        <div class="list">
             <slot />
         </div>
     </div>
@@ -62,32 +62,29 @@ provide("toggleOption", (optionValue: unknown) => {
     display: inline-flex;
     align-self: flex-start;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     &.fullWidth {
         align-self: unset;
-        >>> .option {
+        :deep(.option) {
             width: 100%;
         }
     }
     &.top-label {
         flex-direction: column;
-        .options__label {
+        label {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
     }
-    &__label {
+    label {
         padding: 3px 7px;
         justify-content: center;
         align-items: center;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
         flex-grow: 1;
     }
-    &__list {
+    .list {
         display: inline-flex;
         justify-self: flex-start;
         flex-direction: row;
-        gap: 1px;
     }
 }
 </style>

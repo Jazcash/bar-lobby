@@ -1,3 +1,29 @@
+<template>
+    <Tooltip :content="tooltip">
+        <div class="control" :class="{ disabled }" v-bind="$attrs">
+            <slot />
+        </div>
+    </Tooltip>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+defineComponent({
+    inheritAttrs: false,
+});
+</script>
+
+<script lang="ts" setup>
+import Tooltip from "@/components/common/Tooltip.vue";
+
+const props = defineProps<{
+    disabled?: boolean;
+    tooltip?: string;
+}>();
+</script>
+
+<style lang="scss">
 .control {
     position: relative;
     display: flex;
@@ -64,7 +90,8 @@ progress,
 meter,
 .btn,
 .input,
-.vue-select {
+.vue-select,
+.option {
     padding: 5px 10px;
     border-radius: 0px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -83,3 +110,4 @@ meter,
         background-color: rgba(255, 255, 255, 0.2);
     }
 }
+</style>
